@@ -1,3 +1,7 @@
 fun main () {
-    println("Hello World")
+    val classmates = arrayOf("Tyron", "Sacha", "Hannelore", "Jasmien", "Jens")
+    for (classmate in classmates )
+    {
+        print (" Hello world " + classmate + " , ")
+    }
 }

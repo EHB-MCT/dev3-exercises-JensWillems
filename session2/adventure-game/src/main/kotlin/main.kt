@@ -1,5 +1,4 @@
 fun main(){
-
     println(
     "U are doing your theory exam for driven"
     )
@@ -20,9 +19,25 @@ fun challengeOne(){
         println(
             "CORRECT!"
         )
+        challengeTwo()
     } else {
-        println(
-            "U failed your exam!"
-        )
+       gameOver()
     }
+}
+fun challengeTwo(){
+    println(
+        "For your second question you have to guess between low or high"
+    )
+    val playerAnswer2 = readLine()?.toInt()
+    val randomNumber = (1..6).random()
+   if (randomNumber == playerAnswer2){
+
+   }
+}
+
+
+fun gameOver(){
+    println(
+        "U failed your exam!"
+    )
 }

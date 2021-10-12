@@ -43,6 +43,7 @@ fun challengeTwo(){
             println(
                 "wow, U know what u are doing!"
             )
+            challengeThree()
         } else if(playerAnswer2.contains("low")){
             gameOver()
         }
@@ -52,12 +53,45 @@ fun challengeTwo(){
                 "wow, U know what u are doing!"
             )
             winner()
+            challengeThree()
         } else if(playerAnswer2.contains("high")){
             gameOver()
         }
     }
+}
 
+fun challengeThree(){
+    println(
+        "U have to drive off road"
+    )
+    println(
+        "Choose what car is the best for this"
+    )
+    val chosenCars = arrayOf("VW" , "BMW" , "Ford")
+    println(
+        chosenCars
+    )
+    print(
+        "choose wisely"
+    )
+    val playerChosenCar = readLine().toString()
 
+    if (playerChosenCar.contains("VW")){
+        println(
+            "U are afraid to drive, U fail this part!"
+        )
+        challengeTwo()
+    } else if (playerChosenCar.contains("BMW")){
+        println(
+            "your car got stuck!"
+        )
+        gameOver()
+    } else {
+        println(
+            "u chose wisely"
+        )
+        winner()
+    }
 }
 fun winner(){
 println(

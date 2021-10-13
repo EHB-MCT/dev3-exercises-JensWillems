@@ -1,27 +1,32 @@
 fun main(){
     println(
-    "U are doing your theory exam for driven"
+        "Welcome PARTICIPANT!!"
     )
     println(
-        "Answer these questions to pass!"
+    "U have been chosen to play our game..."
+    )
+    println(
+        "Squad game!"
+    )
+    println(
+        "Complete each challenge to win a LOT of money!"
     )
     challengeOne()
 }
 
 fun challengeOne(){
     println(
-    "Your first question!, How many wheels does a car have?"
+    "Your first challenge, what rectangle shape has four equal sides?"
     )
-    val riddleAnswer = arrayOf("4" , "four" , "vier")
+    val riddleAnswer = arrayOf("square" , "vierkant" , "ruit", "Square")
     println("Type your answer: ")
     val playerAnswer = readLine()
     if(riddleAnswer.contains(playerAnswer)){
-        winner()
         println(
-            "U have scored one point on your exam"
+            "U passed your first challenge!"
         )
         println(
-            "But that is not enough!"
+            "But there are MORE!"
         )
         challengeTwo()
     } else {
@@ -32,6 +37,10 @@ fun challengeTwo(){
     println(
         "For your second question you have to guess between low or high"
     )
+    println(
+        "It is a game of luck!"
+    )
+    println("Type your answer: ")
     val playerAnswer2 = readLine().toString()
     val randomNumber = (1..6).random()
     println(
@@ -41,7 +50,7 @@ fun challengeTwo(){
         if (playerAnswer2.contains("high")){
             winner()
             println(
-                "wow, U know what u are doing!"
+                "wow, U got lucky!"
             )
             challengeThree()
         } else if(playerAnswer2.contains("low")){
@@ -50,7 +59,7 @@ fun challengeTwo(){
     } else if( randomNumber <= 4){
         if (playerAnswer2.contains("low")){
             println(
-                "wow, U know what u are doing!"
+                "wow, U got lucky!"
             )
             winner()
             challengeThree()
@@ -62,28 +71,31 @@ fun challengeTwo(){
 
 fun challengeThree(){
     println(
-        "U have to drive off road"
+        "For the third challenge, u have to chose between 3 forms"
     )
     println(
-        "Choose what car is the best for this"
+        "Choose your form"
     )
-    val chosenCars = arrayOf("VW" , "BMW" , "Ford")
+    val chosenForms = arrayOf("Umbrella" , "Circle" , "Triangle")
     println(
-        chosenCars
+        "Umbrella , Circle , Triangle"
     )
     print(
         "choose wisely"
     )
+    println("Type your answer: ")
     val playerChosenCar = readLine().toString()
-
-    if (playerChosenCar.contains("VW")){
+println(
+    "U have to carve the form out of a cookie!!!"
+)
+    if (playerChosenCar.contains("Circle")){
         println(
-            "U are afraid to drive, U fail this part!"
+            "U are afraid to do it!"
         )
         challengeTwo()
-    } else if (playerChosenCar.contains("BMW")){
+    } else if (playerChosenCar.contains("Umbrella")){
         println(
-            "your car got stuck!"
+            "you broke the umbrella"
         )
         gameOver()
     } else {
@@ -104,6 +116,12 @@ println(
 
 fun gameOver(){
     println(
-        "U failed your exam!"
+        "U failed the game"
+    )
+    println(
+        "so no money for you..."
+    )
+    println(
+        "U DIED!"
     )
 }

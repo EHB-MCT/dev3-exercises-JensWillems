@@ -3,8 +3,10 @@ fun main(){
     //val Bert = Comedian("Bert")
 
     //val persons = arrayOf(Jack, Bert)
-
-    val chatPartners = arrayOf(Student("Bert"), Teacher("Jack"), Comedian("Ken"))
+    println(
+        "Starting ChatRoulette"
+    )
+    val chatPartners = arrayOf(Student("Bert"), Teacher("Jack"), Comedian("Ken"),Chatbot("Timmy"))
 
     val chatPartner = chatPartners.random()
     chatPartner.introduction()

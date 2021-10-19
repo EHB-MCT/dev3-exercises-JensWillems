@@ -1,2 +1,8 @@
-class Chatbot(val name: String) : Person {
+class Chatbot(override val name: String): Person(name){
+    override fun talk(){
+        println(
+            "IDK what to type"
+        )
+    }
+
 }

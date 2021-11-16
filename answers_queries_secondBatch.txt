@@ -1,0 +1,19 @@
+solutions: querries second batch
+1. SELECT COUNT(customerNumber) FROM orders WHERE customerNumber = '328'
+answer: 3
+
+2. SELECT COUNT(*) AS amount FROM orders 
+LEFT JOIN customers ON orders.customerNumber = customers.customerNumber
+WHERE customers.contactFirstName = "Julie" AND customers.contactLastName = "Young" 
+answer: 3
+
+3. SELECT COUNT(customerName) FROM customers WHERE country = 'usa'AND creditLimit = '0' 
+answer: 1
+
+4. 
+SELECT  customers.customerName, AVG(amount) AS average FROM customers
+INNER JOIN payments ON payments.customerNumber = customers.customerNumber
+GROUP BY customers.customerNumber
+ORDER BY average DESC
+LIMIT 1
+answer: Collectable Mini Designs Co.	80375.240000

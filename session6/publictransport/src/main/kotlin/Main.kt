@@ -18,17 +18,23 @@ fun main(){
                 ":" + "3306" + "/" +
                 credentials.databaseName,
         connectionProps)
+println(
+    "Where are you ? Brussels or Antwerp"
+)
+    val position = readLine()
     println(
         "Chose your destination city between Brussels or Antwerp"
     )
 
     val search = readLine()
-    val statement = connection.prepareStatement("SELECT * FROM S6_rides WHERE destination = ? ")
+    val statement = connection.prepareStatement("SELECT * FROM S6_rides WHERE destination = ? AND start_city = ? ORDER BY departure_time LIMIT 1" )
 
     statement.setString(1, search)
+    statement.setString(2, position)
     val result = statement.executeQuery()
     while(result.next()) {
         println(
+            result.getString("start_city") + ": " +
             result.getString("departure_time")
         )
 

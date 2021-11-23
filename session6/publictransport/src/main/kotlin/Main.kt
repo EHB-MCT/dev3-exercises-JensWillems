@@ -34,8 +34,8 @@ println(
     val result = statement.executeQuery()
     while(result.next()) {
         println(
-            result.getString("start_city") + ": " +
-            result.getString("departure_time")
+            "From "+ result.getString("start_city") + " at " +
+            result.getString("departure_time") + " to " + result.getString("destination")
         )
 
     }

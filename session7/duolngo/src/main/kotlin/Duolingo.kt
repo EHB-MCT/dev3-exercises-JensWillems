@@ -2,7 +2,7 @@ class Duolingo() {
 
     val words = mutableListOf<Word>(Word("World","Wereld","Engels"),
         Word("Hello","Hallo","Engels"),
-        Word("Bye","daag","Engels"),
+        Word("Bye","Daag","Engels"),
         Word("Sun","Zon","Engels"),
         Word("Moon","Maan","Engels"),
         Word("Shovel","Shop","Engels"),
@@ -14,10 +14,28 @@ class Duolingo() {
         Word("Chien","Hond","Frans"))
 
     fun play(){
-        val randomWords = words.random()
-        println(
-            "${randomWords.original}"
-        )
+        val currentWords = words.shuffled().take(5).toMutableSet()
+
+        while (currentWords.count() > 0){
+            val selectedWord = currentWords.random()
+            println(
+                "Translate this word: "+
+                selectedWord.original
+            )
+            val PlayerAnswer = readLine()
+            if(selectedWord.translation.contains(PlayerAnswer.toString())){
+                println(
+                    "Goodjob!"
+                )
+                currentWords.remove(selectedWord)
+            } else {
+                println(
+                    "Wrong!"
+                )
+            }
+            println(currentWords.count())
+        }
+
     }
 
 }

@@ -1,4 +1,7 @@
-class Duolingo() {
+class Duolingo(
+    val number : String,
+    val language: String,
+) {
 
     val words = mutableListOf<Word>(Word("World","Wereld","Engels"),
         Word("Hello","Hallo","Engels"),
@@ -8,13 +11,18 @@ class Duolingo() {
         Word("Shovel","Shop","Engels"),
         Word("Chicken","Kip","Engels"),
         Word("Enfant","Kind","Frans"),
-        Word("Ecole","Ecole","Frans"),
+        Word("Ecole","School","Frans"),
         Word("Voiture","Auto","Frans"),
         Word("Carrefour","Kruispunt","Frans"),
         Word("Chien","Hond","Frans"))
 
     fun play(){
-        val currentWords = words.shuffled().take(5).toMutableSet()
+
+val list = words.filter {
+    it.language == language
+}
+
+        val currentWords = list.shuffled().take(number.toInt()).toMutableSet()
 
         while (currentWords.count() > 0){
             val selectedWord = currentWords.random()
@@ -30,7 +38,7 @@ class Duolingo() {
                 currentWords.remove(selectedWord)
             } else {
                 println(
-                    "Wrong!"
+                    "Wrong! The answer was " + selectedWord.translation
                 )
             }
             println(currentWords.count())

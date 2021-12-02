@@ -18,9 +18,8 @@ class Duolingo(
 
     fun play(){
 
-val list = words.filter {
-    it.language == language
-}
+    val list = words.filter {
+             it.language == language }
 
         val currentWords = list.shuffled().take(number.toInt()).toMutableSet()
 

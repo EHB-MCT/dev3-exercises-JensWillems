@@ -1,20 +1,21 @@
 class Duolingo(
     val number : String,
-    val language: String,
+    val language: String
 ) {
 
-    val words = mutableListOf<Word>(Word("World","Wereld","Engels"),
-        Word("Hello","Hallo","Engels"),
-        Word("Bye","Daag","Engels"),
-        Word("Sun","Zon","Engels"),
-        Word("Moon","Maan","Engels"),
-        Word("Shovel","Shop","Engels"),
-        Word("Chicken","Kip","Engels"),
-        Word("Enfant","Kind","Frans"),
-        Word("Ecole","School","Frans"),
-        Word("Voiture","Auto","Frans"),
-        Word("Carrefour","Kruispunt","Frans"),
-        Word("Chien","Hond","Frans"))
+    var words = mutableListOf<Word>(
+        EnglishWord("World","Wereld",1),
+        EnglishWord("Hello","Hallo",1),
+        EnglishWord("Bye","Daag",1),
+        EnglishWord("Sun","Zon",1),
+        EnglishWord("Moon","Maan",1),
+        EnglishWord("Shovel","Shop",1),
+        EnglishWord("Chicken","Kip",1),
+        FrenchWord("Enfant","Kind",1),
+        FrenchWord("Ecole","School",1),
+        FrenchWord("Voiture","Auto",1),
+        FrenchWord("Carrefour","Kruispunt",1),
+        FrenchWord("Chien","Hond",1))
 
     fun play(){
 
@@ -30,18 +31,20 @@ class Duolingo(
                 selectedWord.original
             )
             val PlayerAnswer = readLine()
-            if(selectedWord.translation.contains(PlayerAnswer.toString())){
+            if(selectedWord.translated.contains(PlayerAnswer.toString())){
                 println(
                     "Goodjob!"
                 )
                 currentWords.remove(selectedWord)
             } else {
+                selectedWord.difficulty++
                 println(
-                    "Wrong! The answer was " + selectedWord.translation
+               "Wrong! The answer was " + selectedWord.translated
                 )
             }
             println(currentWords.count())
         }
+
 
     }
 
